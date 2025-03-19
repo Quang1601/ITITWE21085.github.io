@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Developer Portfolio</title>
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Container for the entire page */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Navigation */
+        #nav1 {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Main content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Section styling */
+        section {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Reviews section */
+        .reviews {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .projects {
+            width: 50%;
+            height: 100%;
+            padding: 30px;
+            font-size: 1.2em;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        /* Desktop layout (min-width: 768px) */
+        @media (min-width: 768px) {
+            .main-content {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+           
+
+            .right-column {
+                flex: 2;
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+            }
+        
+      
+   
+  
+
+
+            
+            .reviews {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .review {
+                flex: 1;
+                max-width: 30%;
+            }
+        }
+
+        /* Mobile layout adjustments */
+        @media (max-width: 767px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .reviews {
+                flex-direction: column;
+            }
+
+            .review {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>NHAT QUANG</h1>
+            <p>Frontend Developer</p>
+            <p>html only with proper layout, no styling</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav id ="nav1">
+            <a href="#">Home</a>
+            <a href="#">Projects</a>
+            <a href="#">Articles</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+
+            <!-- Right Column (Projects, Work Experience, Education for Desktop) -->
+            <div class="right-column">
+                <!-- Projects -->
+                <section class="projects">
+                    <h2>PROJECTS</h2>
+                    <ul>
+                    <li>HTML Only Portfolio</li>
+                    <li>Calculator</li>
+                    <li>Quiz App</li>
+                    <li>Countdown Timer</li>
+                    <li>Product Upcoming Page</li>
+                </ul>
+                </section>  
+
+                <div class="iu2">  <!-- Work Experience -->
+                <section class="work-experience" >
+                    <h2>WORK EXPERIENCE</h2>
+                    <p>roodmap.sh</p>
+                    <p>Solved all the frontend projects</p>
+                    <p>Visit my Profile</p>
+                </section>
+                <section class="open-source">
+                    <h2> OPEN SOURCE</h2>
+                    <p> Contribute to 50 opensource Projects. Made my own projects with 200 Github Stars </p>
+                    <p>Visit my Github</p>
+                </section> </div>
+            
+           
+        
+           
+                <!-- Education -->
+                <section class="education">
+                    <h2>EDUCATION</h2>
+                    <p>Graduated with 3.76 out of 4 CGPA, Won Acme Hackathon. Organized 30 sessions.</p>
+                    <p>Courses I took:</p>
+                    <ul>
+                        <li>Object Oriented Programming</li>
+                        <li>Data Structures and Algorithms</li>
+                        <li>Web Engineering</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Human Computer Interaction</li>
+                        <li>Computer Graphics</li>
+                        <li>Database Management Systems</li>
+                        <li>Distributed Database Systems</li>
+                        <li>Discrete Mathematics</li>
+                    </ul>
+                </section>
+
+
+        </div>
+
+        <!-- Reviews (Desktop Only) -->
+        <section class="reviews desktop-reviews">
+            <h2>REVIEWS FROM MY TEACHERS</h2>
+            <div class="review">
+                <p>John Doe was a brilliant student; always stood out with his assignments.</p>
+                <p>Jane Doe, Assistant Professor</p>
+            </div>
+            <div class="review">
+                <p>John Doe was a brilliant student; always stood out with his assignments.</p>
+                <p>Jane Doe, Assistant Professor</p>
+            </div>
+            <div class="review">
+                <p>John Doe was a brilliant student; always stood out with his assignments.</p>
+                <p>Jane Doe, Assistant Professor</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© ALL RIGHTS RESERVED 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
