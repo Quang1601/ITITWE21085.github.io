@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+
+    <link rel="shortcut icon" href="/logo-vector-IU-01.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <style>
+        h2,h4{
+            color: rgba(4, 172, 116, 0.868);
+        }
+
+       input.form-control{
+       
+    display: inline-bloc;
+    width: auto;
+
+        }
+        
+        .container { margin-top: 20px; }
+        .result { display: none; color: green; font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <img src="logo-vector-IU-01.png" alt="HCMIU" width="200">
+        <h2>Survey</h2>
+        <p>If you have a moment, we'd appreciate it if you would fill out this survey.</p>
+        
+        <form id="surveyForm" onsubmit="handleSubmit(event)">
+            <!-- Your Information -->
+            <h4>Your Information:</h4>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="dob" required>
+            </div>
+
+            <!-- How did you hear about us? -->
+            <h4>How did you hear about us?</h4>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="searchEngine" name="hearAbout" value="Search engine">
+                <label class="form-check-label" for="searchEngine">Search engine</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="wordOfMouth" name="hearAbout" value="Word of mouth">
+                <label class="form-check-label" for="wordOfMouth">Word of mouth</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="socialMedia" name="hearAbout" value="Social Media">
+                <label class="form-check-label" for="socialMedia">Social Media</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="other" name="hearAbout" value="Other">
+                <label class="form-check-label" for="other">Other</label>
+            </div>
+
+            <!-- Receive Announcements -->
+            <h4>Would you like to receive announcements about new CDs and special offers?</h4>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="announcements" name="announcements" value="YES, I'd like that">
+                <label class="form-check-label" for="announcements">YES, I'd like that.</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="emailAnnouncements" name="emailAnnouncements" value="YES, please send me email announcements">
+                <label class="form-check-label" for="emailAnnouncements">YES, please send me email announcements.</label>
+            </div>
+
+            <!-- Contact Preference -->
+            <h4>Please contact me by:</h4>
+            <div class="form-group">
+                <select class="form-control" id="contactBy" name="contactBy" required>
+                    <option value="Email or postal mail">Email or postal mail</option>
+                    <option value="Email only">Email only</option>
+                    <option value="Postal mail only">Postal mail only</option>
+                </select>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+
+        <!-- Result Display -->
+        <div id="result" class="result">
+            <h4>Thank you!</h4>
+            <p>Wait for approving by advice</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent form submission
+            document.getElementById("surveyForm").style.display = "none"; // Hide form
+            document.getElementById("result").style.display = "block"; // Show result
+        }
+    </script>
+</body>
+</html>
