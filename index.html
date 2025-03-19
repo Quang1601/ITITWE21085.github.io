@@ -1,116 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey Form</title>
-
-    <link rel="shortcut icon" href="/logo-vector-IU-01.png">
+    <title>Frontend Developer Portfolio</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        h2,h4{
-            color: rgba(4, 172, 116, 0.868);
+        /* CSS Variables for Light/Dark Mode */
+        :root {
+            --background-color: #ffffff;
+            --text-color: #333333;
+            --section-bg: #f8f9fa;
+            --border-color: #ccc;
+            --link-color: #007bff;
+            --card-bg: #ffffff;
         }
 
-       input.form-control{
-       
-    display: inline-block;
-    width: auto;
+        [data-theme="dark"] {
+            --background-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --section-bg: #2c2c2c;
+            --border-color: #444;
+            --link-color: #66b0ff;
+            --card-bg: #333333;
+        }
 
+        /* Apply CSS Variables */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-style: italic;
+        }
+
+        /* Section Styling */
+        section {
+            background-color: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Reviews Section */
+        .review {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
         }
         
-        .container { margin-top: 20px; }
-        .result { display: none; color: green; font-weight: bold; margin-top: 20px; }
+     
+
+       
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Custom Link Styles */
+        a {
+            color: var(--link-color);
+        }
+
+        a:hover {
+            color: var(--link-color);
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="btn btn-secondary theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+
     <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>NHAT QUANG</h1>
+            <p>Frontend Developer</p>
+            <p>html only with proper layout, no styling</p>
+        </header>
 
-        <img src="logo-vector-IU-01.png" alt="HCMIU" width="200">
-        <h2>Survey</h2>
-        <p>If you have a moment, we'd appreciate it if you would fill out this survey.</p>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Portfolio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#articles">Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="row">
+            <!-- Projects -->
+            <div class="col-md-3 d-flex align-items-stretch">
+                <section id="projects" class="w-100">
+                    <h2>PROJECTS</h2>
+                    <ul>
+                        <li>HTML Only Portfolio</li>
+                        <li>Calculator</li>
+                        <li>Quiz App</li>
+                        <li>Countdown Timer</li>
+                        <li>Product Upcoming Page</li>
+                    </ul>
+                </section>
+            </div>
         
-        <form id="surveyForm" onsubmit="handleSubmit(event)">
-            <!-- Your Information -->
-            <h4>Your Information:</h4>
-            <div class="form-group">
-                <label for="firstName">First Name:</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" required>
+            <!-- Open Source and Work Experience -->
+            <div class="col-md-6 d-flex align-items-stretch">
+                <div class="d-flex flex-column w-100">
+                    <section class="mb-3 w-100">
+                        <h2>WORK EXPERIENCE</h2>
+                        <p>roodmap.sh</p>
+                        <p>Solved all the frontend projects</p>
+                        <p><a href="#">Visit my Profile</a></p>
+                    </section>
+                    <section class="w-100">
+                        <h2>OPEN SOURCE</h2>
+                        <p>Contributed to 50 opensource Projects. Made my own projects with 200 Github Stars</p>
+                        <p><a href="#">Visit my Github</a></p>
+                    </section>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="lastName">Last Name:</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" required>
+        
+            <!-- Education -->
+            <div class="col-md-3 d-flex align-items-stretch">
+                <section class="w-100">
+                    <h2>EDUCATION</h2>
+                    <p>Graduated with 3.76 out of 4 CGPA, Won Acme Hackathon. Organized 30 sessions.</p>
+                    <p>Courses I took:</p>
+                    <ul>
+                        <li>Object Oriented Programming</li>
+                        <li>Data Structures and Algorithms</li>
+                        <li>Web Engineering</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Human Computer Interaction</li>
+                        <li>Computer Graphics</li>
+                        <li>Database Management Systems</li>
+                        <li>Distributed Database Systems</li>
+                        <li>Discrete Mathematics</li>
+                    </ul>
+                </section>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" class="form-control" id="dob" name="dob" required>
-            </div>
-
-            <!-- How did you hear about us? -->
-            <h4>How did you hear about us?</h4>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="searchEngine" name="hearAbout" value="Search engine">
-                <label class="form-check-label" for="searchEngine">Search engine</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="wordOfMouth" name="hearAbout" value="Word of mouth">
-                <label class="form-check-label" for="wordOfMouth">Word of mouth</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="socialMedia" name="hearAbout" value="Social Media">
-                <label class="form-check-label" for="socialMedia">Social Media</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="other" name="hearAbout" value="Other">
-                <label class="form-check-label" for="other">Other</label>
-            </div>
-
-            <!-- Receive Announcements -->
-            <h4>Would you like to receive announcements about new CDs and special offers?</h4>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="announcements" name="announcements" value="YES, I'd like that">
-                <label class="form-check-label" for="announcements">YES, I'd like that.</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="emailAnnouncements" name="emailAnnouncements" value="YES, please send me email announcements">
-                <label class="form-check-label" for="emailAnnouncements">YES, please send me email announcements.</label>
-            </div>
-
-            <!-- Contact Preference -->
-            <h4>Please contact me by:</h4>
-            <div class="form-group">
-                <select class="form-control" id="contactBy" name="contactBy" required>
-                    <option value="Email or postal mail">Email or postal mail</option>
-                    <option value="Email only">Email only</option>
-                    <option value="Postal mail only">Postal mail only</option>
-                </select>
-            </div>
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
-        </form>
-
-        <!-- Result Display -->
-        <div id="result" class="result">
-            <h4>Thank you!</h4>
-            <p>Wait for approving by advice</p>
         </div>
+
+        <!-- Reviews (Desktop) -->
+        <section class="reviews d-none d-md-flex">
+            <h2 class="w-100">REVIEWS FROM MY TEACHERS</h2>
+            <div class="row w-100">
+                <div class="col-md-4">
+                    <div class="review">
+                        <p>John Doe was a brilliant student; always stood out with his assignments.</p>
+                        <p>Jane Doe, Assistant Professor</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="review">
+                        <p>John Doe was a brilliant student; always stood out with his assignments.</p>
+                        <p>Jane Doe, Assistant Professor</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="review">
+                        <p>John Doe was a brilliant student; always stood out with his assignments.</p>
+                        <p>Jane Doe, Assistant Professor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact">
+            <h2>CONTACT ME</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© ALL RIGHTS RESERVED 2025</p>
+        </footer>
     </div>
 
-    <!-- Bootstrap JS and Dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JavaScript -->
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <!-- Theme Toggle Script -->
     <script>
-        function handleSubmit(event) {
-            event.preventDefault(); // Prevent form submission
-            document.getElementById("surveyForm").style.display = "none"; // Hide form
-            document.getElementById("result").style.display = "block"; // Show result
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
         }
     </script>
 </body>
